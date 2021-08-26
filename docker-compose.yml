@@ -2,14 +2,14 @@ version: '3.1'
 
 services:
 
-  server:
-    image: server
-    build: .
+  db:
+    image: mongo:4.4
     restart: always
     ports:
-      - 54321:27017
+      - 27017:27017
     volumes:
-      - ./db:/data/db  
+      - ./db:/data/db
+      - ./mongod.conf:/etc/mongod.conf.orig
     environment:
       MONGO_INITDB_ROOT_USERNAME: boostr
       MONGO_INITDB_ROOT_PASSWORD: boostr123
