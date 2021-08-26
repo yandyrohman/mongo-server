@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+
+  server:
+    image: server
+    build: .
+    restart: always
+    ports:
+      - 54321:27017
+    volumes:
+      - ./db:/data/db  
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: boostr
+      MONGO_INITDB_ROOT_PASSWORD: boostr123
